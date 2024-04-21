@@ -4,9 +4,11 @@ import urllib.request
 
 INT_MAX = 2147483647
 INT_MIN = -2147483648
-GREEN = "\033[92m"
-RESET = "\033[0m"
-RED = "\033[91m"
+GREEN = "\033[5;92m"
+RESET = "\033[5;0m"
+RED = "\033[5;91m"
+GREEN_BOLD = "\033[1;92m"
+RED_BOLD = "\033[1;91m"
 
 tests = [
     {"n": 5, "max": 12},
@@ -93,6 +95,6 @@ if __name__ == "__main__":
             runTest(test['n'])
 
     if success:
-        print(GREEN + "\nAll tests passed successfully! 🥳\n" + RESET)
+        print(GREEN_BOLD + "\nAll tests passed successfully! 🥳\n" + RESET)
     else:
-        print(RED + "\nSome tests failed 😞...\n")
+        print(RED_BOLD + "\nSome tests failed 😞...\n")
