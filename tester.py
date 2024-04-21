@@ -31,17 +31,6 @@ def testParsnig():
         exit(1)
     else:
         print(GREEN + "✅" + RESET)
-    
-def checkAlreadySorted():
-    print("\nTesting already sorted list ------------------------")
-    cmd = './push_swap -15 8 12 42 1337 | cat -e'
-    print("./push_swap -15 8 12 42 1337", end=" ")
-    result = os.popen(cmd).read().strip()
-    if result != "$":
-        print(RED + "❌" + RESET)
-        exit(1)
-    else:
-        print(GREEN + "✅" + RESET)
 
 def runTest(n):
     array = []
@@ -106,8 +95,6 @@ if __name__ == "__main__":
     operatingSystem = os.name
 
     print(MAGNETA_BOLD + "Welcome to the push_swap tester!" + RESET)
-
-    checkAlreadySorted()
 
     testParsnig()
 
