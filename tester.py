@@ -4,11 +4,12 @@ import urllib.request
 
 INT_MAX = 2147483647
 INT_MIN = -2147483648
-GREEN = "\033[5;92m"
-RESET = "\033[5;0m"
-RED = "\033[5;91m"
+GREEN = "\033[0;92m"
+RESET = "\033[0;0m"
+RED = "\033[0;91m"
 GREEN_BOLD = "\033[1;92m"
 RED_BOLD = "\033[1;91m"
+MAGNETA_BOLD = "\033[1;95m"
 
 tests = [
     {"n": 5, "max": 12},
@@ -19,6 +20,18 @@ tests = [
 global success
 success = True
 checker = ""
+
+def testParsnig():
+    print("Testing parsing... ")
+    cmd = './push_swap 1 2 "3 +4" 5 "6 7 8" +9 10 | cat -e'
+    result = os.popen(cmd).read().strip()
+    print(cmd, end=" ")
+    if result != "$":
+        print(RED + "❌" + RESET)
+        exit(1)
+    else:
+        print(GREEN + "✅" + RESET)
+    
 
 def runTest(n):
     array = []
@@ -56,6 +69,7 @@ def getChecker():
         if not os.path.isfile(checker):
             print("checker_linux not found")
             try:
+                print(GREEN_BOLD + "Downloading checker_linux..." + RESET)
                 checker_url = "https://cdn.intra.42.fr/document/document/25123/checker_linux"
                 urllib.request.urlretrieve(checker_url, checker)
                 os.system("chmod 777 checker_linux")
@@ -81,9 +95,12 @@ if __name__ == "__main__":
 
     operatingSystem = os.name
 
-    getChecker()
+    print(MAGNETA_BOLD + "Welcome to the push_swap tester!" + RESET)
 
-    timesToRunTest = int(input("How many times do you want to run the test for cases(10, 100, 500): "))
+    testParsnig()
+
+    getChecker()
+    timesToRunTest = int(input("\nHow many times do you want to run the test for cases(10, 100, 500): "))
 
     if (os.system("make") != 0):
         print("Error compiling push_swap")
