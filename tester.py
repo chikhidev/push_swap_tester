@@ -54,7 +54,7 @@ def getChecker():
         if not os.path.isfile(checker):
             print("checker_linux not found")
             try:
-                checker_url = "https://cdn.intra.42.fr/document/document/25121/checker_linux"
+                checker_url = "https://cdn.intra.42.fr/document/document/25123/checker_linux"
                 urllib.request.urlretrieve(checker_url, checker)
                 os.system("chmod 777 checker_linux")
             except:
