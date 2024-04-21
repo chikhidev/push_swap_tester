@@ -107,16 +107,17 @@ if __name__ == "__main__":
 
     print(MAGNETA_BOLD + "Welcome to the push_swap tester!" + RESET)
 
+    if (os.system("make") != 0):
+        print("Error compiling push_swap")
+        exit(1)
+
     checkAlreadySorted()
 
     testParsnig()
 
     getChecker()
-    timesToRunTest = int(input("\nHow many times do you want to run the test for cases(10, 100, 500): "))
 
-    if (os.system("make") != 0):
-        print("Error compiling push_swap")
-        exit(1)
+    timesToRunTest = int(input("\nHow many times do you want to run the test for cases(10, 100, 500): "))
 
     for test in tests:
         print(f"\nRunning tests for n = {test['n']}\n")
