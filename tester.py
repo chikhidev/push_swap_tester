@@ -34,10 +34,10 @@ def testParsnig():
     
 def checkAlreadySorted():
     print("\nTesting already sorted list ------------------------")
-    cmd = './push_swap -15 8 12 42 1337 | wc'
+    cmd = './push_swap -15 8 12 42 1337 | cat -e'
     print("./push_swap -15 8 12 42 1337", end=" ")
     result = os.popen(cmd).read().strip()
-    if result != "0       0       0":
+    if result != "$":
         print(RED + "❌" + RESET)
         exit(1)
     else:
