@@ -23,10 +23,10 @@ checker = ""
 
 def testParsnig():
     print("\nTesting parsing ------------------------------------")
-    cmd = './push_swap -0001 2 "3 +00004" 5 "6 7 8" +9 10 | cat -e'
+    cmd = './push_swap -0001 2 "3 +00004" 5 "6 7 8" +9 10'
     result = os.popen(cmd).read().strip()
     print('./push_swap -0001 2 "3 +00004" 5 "6 7 8" +9 10', end=" ")
-    if result != "$":
+    if result.length != 0:
         print(RED + "❌" + RESET)
         exit(1)
     else:
