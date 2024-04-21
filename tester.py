@@ -127,3 +127,5 @@ if __name__ == "__main__":
         print(GREEN_BOLD + "\nAll tests passed successfully! 🥳\n" + RESET)
     else:
         print(RED_BOLD + "\nSome tests failed 😞...\n")
+
+    os.system("make fclean")
