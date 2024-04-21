@@ -25,8 +25,19 @@ def testParsnig():
     print("\nTesting parsing ------------------------------------")
     cmd = './push_swap -0001 2 "3 +00004" 5 "6 7 8" +9 10'
     result = os.popen(cmd).read().strip()
-    print('./push_swap -0001 2 "3 +00004" 5 "6 7 8" +9 10', end=" ")
-    if result.length != 0:
+    print(cmd, end=" ")
+    if len(result) > 0:
+        print(RED + "❌" + RESET)
+        exit(1)
+    else:
+        print(GREEN + "✅" + RESET)
+    
+def checkAlreadySorted():
+    print("\nTesting already sorted list ------------------------")
+    cmd = './push_swap -15 8 12 42 1337'
+    print(cmd, end=" ")
+    result = os.popen(cmd).read().strip()
+    if len(result) > 0:
         print(RED + "❌" + RESET)
         exit(1)
     else:
@@ -95,6 +106,8 @@ if __name__ == "__main__":
     operatingSystem = os.name
 
     print(MAGNETA_BOLD + "Welcome to the push_swap tester!" + RESET)
+
+    checkAlreadySorted()
 
     testParsnig()
 
