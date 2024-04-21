@@ -17,9 +17,8 @@ The `push_swap` program is a sorting algorithm project in the 42 curriculum. Thi
 
 ```bash
 git clone https://github.com/chikhidev/push_swap_tester.git
-cd push_swap_tester
-chmod +x runner.sh
-./runner.sh
+
+python3 ./push_swap_tester/tester.py
 ```
 
 ## Test Configuration
