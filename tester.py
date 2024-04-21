@@ -49,7 +49,7 @@ def getChecker():
     if operatingSystem == "nt":
         print("This script is not supported in Windows")
         exit(1)
-    elif operatingSystem == "linux" or operatingSystem == "posix":
+    elif operatingSystem == "linux":
         checker = "./checker_linux"
         if not os.path.isfile(checker):
             print("checker_linux not found")
@@ -60,7 +60,7 @@ def getChecker():
             except:
                 print("Error downloading checker_linux")
                 exit(1)
-    elif operatingSystem == "mac":
+    elif operatingSystem == "posix":
         checker = "./checker_Mac"
         if not os.path.isfile(checker):
             print("checker_Mac not found")
